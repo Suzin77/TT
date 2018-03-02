@@ -53,6 +53,19 @@ function drawGrid()
 	ctx.stroke();
 }
 
+function getCell()
+{
+   kawa.addEventListener("click", (event)=>{
+	let inGrid = {x:event.clientX - startGrid.x, y:event.clientY - startGrid.y}
+	cell = {x:(Math.floor((inGrid.x/(fieldWidth/3)+1))),y:(Math.floor((inGrid.y/(filedHeight/3)+1)))}
+	//cell.x = (Math.floor((inGrid.x/(fieldWidth/3)+1)));
+	let position = "Pozycja to: [" + cell.x + ","+ cell.y+"]"; 
+	document.getElementById("klikniecie").innerHTML = position;	
+	//console.log(cell.x);
+   });
+   return cell;
+}
+
 function drwaPoint(ctx){}
 function drawX(ctx){
 	
@@ -83,14 +96,9 @@ kawa.addEventListener("mousemove", (event)=>{
   document.getElementById("wynik").innerHTML = coor + relcoor + rectcoor ; 
 })
 
-kawa.addEventListener("click", (event)=>{
-	let inGrid = {x:event.clientX - startGrid.x, y:event.clientY - startGrid.y}
-	cell = {x:(Math.floor((inGrid.x/(fieldWidth/3)+1))),y:(Math.floor((inGrid.y/(filedHeight/3)+1)))}
-	//cell.x = (Math.floor((inGrid.x/(fieldWidth/3)+1)));
-	let position = "Pozycja to: [" + cell.x + ","+ cell.y+"]"; 
-	document.getElementById("klikniecie").innerHTML = position;	
-	console.log(cell.x);
-})
+document.getElementById("klikniecie").innerHTML = console.log(getCell());
+
+		
 
 </script>
 
