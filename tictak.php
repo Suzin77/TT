@@ -4,7 +4,7 @@
 </head>
 <body style = "margin: 0;">
 
- <p>Drzewko rozdzielone sprawdzam</p> 
+ <p>Drzewko rozdzielone sprawdzam aaaa </p> 
 
 <canvas id="tictak" width="300" height="300"></canvas>
 
@@ -20,8 +20,8 @@ var ctx = element.getContext('2d');
 var rect = element.getBoundingClientRect();
 
 
-var fieldWidth = 150;
-var filedHeight = 150;
+var fieldWidth = 250;
+var filedHeight = 250;
 var fieldX = 50;
 var fieldY = 50;
 
@@ -61,6 +61,7 @@ function getCell()
 	//cell.x = (Math.floor((inGrid.x/(fieldWidth/3)+1)));
 	let position = "Pozycja to: [" + cell.x + ","+ cell.y+"]"; 
 	document.getElementById("klikniecie").innerHTML = position;	
+	drawO(cell.x, cell.y);
 	//console.log(cell.x);
    });
    return cell;
@@ -74,12 +75,10 @@ function drawX(ctx){
 
 }
 
-function drawO()
+function drawO(x,y)
 {
 	ctx.beginPath();
-	ctx.arc(startGrid.x+40, startGrid.y+6, 25, 0, Math.PI * 2, true);
-	ctx.arc(1, 1, 25, 0, Math.PI * 2, true);
-
+	ctx.arc((startGrid.x+40)*x, (startGrid.y+6)*y, 25, 0, Math.PI * 2, true);
 	ctx.stroke();
 }
 
